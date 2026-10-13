@@ -3,97 +3,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - MABC</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Máximo Augusto Closs | Portfolio</title>
     <link rel="icon" href="img/favicon.png" type="image/png">
+    
+    <!-- Tipografía contemporánea de Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-    <nav>
-        <ul class="menu">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre-mi">Sobre Mí</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-    <!-- Botón Tema -->
-    <button id="theme-toggle" class="btn-tema" title="Cambiar tema">🌙</button>
-</header>
+    <!-- Encabezado con navegación Sticky y Glassmorphism -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#inicio" class="logo">
+                <span class="logo-iniciales">MABC</span>
+                <span class="logo-punto">.dev</span>
+            </a>
+
+            <nav id="nav-menu" class="nav-links">
+                <ul class="menu">
+                    <li><a href="#inicio" class="nav-enlace active">Inicio</a></li>
+                    <li><a href="#sobre-mi" class="nav-enlace">Sobre Mí</a></li>
+                    <li><a href="#proyectos" class="nav-enlace">Proyectos</a></li>
+                    <li><a href="#contacto" class="nav-enlace">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-acciones">
+                <!-- Botón de cambio de tema -->
+                <button id="theme-toggle" class="btn-tema" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
+                <!-- Botón de menú responsive para móviles -->
+                <button id="menu-toggle" class="btn-hamburguesa" aria-label="Abrir menú de navegación">
+                    <span class="linea"></span>
+                    <span class="linea"></span>
+                    <span class="linea"></span>
+                </button>
+            </div>
+        </div>
+    </header>
 
     <main>
-        <section id="inicio">
-            <h1>Máximo Augusto Closs</h1>
-            <p>Estudiante de Tecnicuatura en Software y Analisis de Sistemas | Instructor de Robótica</p>
-            <!-- Posible foto -->
-            <img src="img/perfil.jpg" alt="Foto de Máximo" class="perfil-img">
-            <a href="#proyectos" class="cta-btn">Ver mis trabajos</a>
+        <!-- Sección Hero / Inicio -->
+        <section id="inicio" class="seccion-hero">
+            <div class="hero-grid">
+                <div class="hero-info">
+                    <div class="badge-estado">
+                        <span class="punto-pulso"></span>
+                        <span>Disponible para nuevos desafíos</span>
+                    </div>
+                    <h1 class="hero-titulo">
+                        Hola, soy <span class="texto-gradiente">Máximo Closs</span>
+                    </h1>
+                    <p class="hero-subtitulo">
+                        Estudiante de Tecnicatura en Software y Análisis de Sistemas &middot; Instructor de Robótica
+                    </p>
+                    <p class="hero-bio">
+                        Residente en Posadas, Misiones. Combino el desarrollo full-stack con la educación tecnológica en la ERM, microcontroladores y diseño 3D.
+                    </p>
+                    <div class="hero-botones">
+                        <a href="#proyectos" class="cta-btn cta-primario">Explorar Proyectos &darr;</a>
+                        <a href="#contacto" class="cta-btn cta-secundario">Contactarme</a>
+                    </div>
+                </div>
+
+                <div class="hero-imagen-wrapper">
+                    <div class="perfil-marco">
+                        <img src="img/perfil.jpg" alt="Foto de Máximo Augusto Closs" class="perfil-img">
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="sobre-mi">
-            <h2>Sobre Mí</h2>
-            <p>Resido en Posadas, Misiones. Combino el desarrollo de software full-stack con la enseñanza de robótica en la Escuela de Robótica Misiones (ERM). Me apasiona crear soluciones tecnológicas y diseñar piezas en impresión 3D.</p>
-            <h3>Tecnologías y Habilidades</h3>
-            <ul>
-                <li>PHP, Laravel, React, TypeScript, Tailwind CSS</li>
-                <li>Bases de datos: MySQL, MongoDB</li>
-                <li>Microcontroladores: Arduino, Motores, Módulos Bluetooth</li>
-                <li>Herramientas: Git, GitHub, Impresión 3D (Creality)</li>
-            </ul>
+        <!-- Sección Sobre Mí -->
+        <section id="sobre-mi" class="seccion">
+            <div class="seccion-header">
+                <span class="seccion-etiqueta">Trayectoria</span>
+                <h2>Sobre Mí</h2>
+                <p class="seccion-subtitulo">
+                    Pasión por crear soluciones completas: desde código backend hasta hardware funcional.
+                </p>
+            </div>
+
+            <div class="sobre-mi-contenido">
+                <div class="sobre-mi-texto">
+                    <p>
+                        Resido en <strong>Posadas, Misiones</strong>. Combino el desarrollo de software full-stack con mi labor docente en la <strong>Escuela de Robótica Misiones (ERM)</strong>. Me apasiona crear soluciones de software escalables, programar sistemas embebidos y diseñar piezas en impresión 3D para prototipado real.
+                    </p>
+                </div>
+
+                <!-- Tarjetas de Habilidades por Categoría -->
+                <div class="habilidades-grid">
+                    <div class="tarjeta-habilidad">
+                        <div class="habilidad-icono">💻</div>
+                        <h3>Desarrollo Web & Backend</h3>
+                        <div class="chips-stack">
+                            <span class="chip">PHP</span>
+                            <span class="chip">Laravel</span>
+                            <span class="chip">React</span>
+                            <span class="chip">TypeScript</span>
+                            <span class="chip">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-habilidad">
+                        <div class="habilidad-icono">🗄️</div>
+                        <h3>Bases de Datos</h3>
+                        <div class="chips-stack">
+                            <span class="chip">MySQL</span>
+                            <span class="chip">MongoDB</span>
+                            <span class="chip">Modelado Relacional</span>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-habilidad">
+                        <div class="habilidad-icono">🤖</div>
+                        <h3>Robótica & Hardware</h3>
+                        <div class="chips-stack">
+                            <span class="chip">Arduino Uno</span>
+                            <span class="chip">Sensores Ultrasónicos</span>
+                            <span class="chip">Módulos Bluetooth</span>
+                            <span class="chip">Drivers L298N</span>
+                        </div>
+                    </div>
+
+                    <div class="tarjeta-habilidad">
+                        <div class="habilidad-icono">🛠️</div>
+                        <h3>Herramientas & Prototipado</h3>
+                        <div class="chips-stack">
+                            <span class="chip">Git & GitHub</span>
+                            <span class="chip">Impresión 3D (Creality)</span>
+                            <span class="chip">Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <section id="proyectos">
-            <h2>Proyectos Destacados</h2>
+        <!-- Sección Proyectos -->
+        <section id="proyectos" class="seccion">
+            <div class="seccion-header">
+                <span class="seccion-etiqueta">Portafolio</span>
+                <h2>Proyectos Destacados</h2>
+                <p class="seccion-subtitulo">Una selección de desarrollos web, propuestas de aplicaciones y robótica.</p>
+            </div>
+
             <div class="galeria-proyectos">
                 <!-- Proyecto 1 -->
                 <article class="tarjeta-proyecto">
-                    <img src="img/yerbatera.jpg" alt="Sistema Yerbatera">
-                    <h3>Yerbatera</h3>
-                    <p>Sistema de gestión web con control de roles de usuario.</p>
-                    <p><strong>Tecnologías:</strong> Laravel, MySQL, Tailwind CSS.</p>
-                    <a href="https://github.com/Yerbatera/Yerbatera-C-M" target="_blank">Ver Repositorio</a>
+                    <div class="tarjeta-img-contenedor">
+                        <img src="img/yerbatera.jpg" alt="Sistema Yerbatera">
+                        <span class="proyecto-badge">Web & Backend</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>Yerbatera</h3>
+                        <p>Sistema de gestión web con control de roles de usuario, flujo administrativo y registro de operaciones.</p>
+                        <div class="tecnologias-tags">
+                            <span class="tag">Laravel</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">Tailwind CSS</span>
+                        </div>
+                        <div class="tarjeta-acciones">
+                            <a href="https://github.com/Yerbatera/Yerbatera-C-M" target="_blank" rel="noopener noreferrer" class="link-proyecto">
+                                Ver Repositorio &nearr;
+                            </a>
+                        </div>
+                    </div>
                 </article>
+
                 <!-- Proyecto 2 -->
                 <article class="tarjeta-proyecto">
-                    <img src="img/yapark.jpg" alt="App YaPark">
-                    <h3>YaPark</h3>
-                    <p>Propuesta de aplicación móvil para estacionamiento inteligente en Posadas mediante un modelo de suscripción.</p>
-                    <p><strong>Tecnologías:</strong> Figma, Análisis Financiero.</p>
+                    <div class="tarjeta-img-contenedor">
+                        <img src="img/yapark.jpg" alt="App YaPark">
+                        <span class="proyecto-badge">Mobile & Negocios</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>YaPark</h3>
+                        <p>Propuesta de aplicación móvil para estacionamiento inteligente en Posadas mediante un modelo de suscripción.</p>
+                        <div class="tecnologias-tags">
+                            <span class="tag">Figma</span>
+                            <span class="tag">UX / UI</span>
+                            <span class="tag">Análisis Financiero</span>
+                        </div>
+                        <div class="tarjeta-acciones">
+                            <span class="link-proyecto-badge">Proyecto Conceptual</span>
+                        </div>
+                    </div>
                 </article>
+
                 <!-- Proyecto 3 -->
                 <article class="tarjeta-proyecto">
-                    <img src="img/robot.jpg" alt="Robot Bluetooth">
-                    <h3>Robot Controlado por Bluetooth</h3>
-                    <p>Robot ensamblado con sensores ultrasónicos y control asíncrono.</p>
-                    <p><strong>Tecnologías:</strong> Arduino Uno, HC-SR04, L298N.</p>
+                    <div class="tarjeta-img-contenedor">
+                        <img src="img/robot.jpg" alt="Robot Bluetooth">
+                        <span class="proyecto-badge">Robótica & IoT</span>
+                    </div>
+                    <div class="tarjeta-cuerpo">
+                        <h3>Robot Controlado por Bluetooth</h3>
+                        <p>Robot ensamblado con sensores ultrasónicos para detección de obstáculos y control asíncrono inalámbrico.</p>
+                        <div class="tecnologias-tags">
+                            <span class="tag">Arduino Uno</span>
+                            <span class="tag">HC-SR04</span>
+                            <span class="tag">L298N</span>
+                        </div>
+                        <div class="tarjeta-acciones">
+                            <span class="link-proyecto-badge">Prototipo ERM</span>
+                        </div>
+                    </div>
                 </article>
             </div>
         </section>
 
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <form id="formulario-contacto">
-                <div class="campo">
-                    <label for="nombre">Nombre:</label>
-                    <input type="text" id="nombre" name="nombre" required>
+        <!-- Sección Contacto -->
+        <section id="contacto" class="seccion seccion-contacto">
+            <div class="seccion-header">
+                <span class="seccion-etiqueta">Hablemos</span>
+                <h2>Contacto</h2>
+                <p class="seccion-subtitulo">¿Tenés una propuesta o consulta? Completá el formulario y nos pondremos en contacto.</p>
+            </div>
+
+            <div class="contacto-wrapper">
+                <div class="contacto-tarjeta-info">
+                    <h3>Construyamos algo juntos</h3>
+                    <p>Estoy disponible para proyectos de desarrollo, colaboraciones tecnológicas o talleres de robótica.</p>
+                    
+                    <ul class="datos-contacto">
+                        <li>
+                            <span class="dato-icono">📍</span>
+                            <span>Posadas, Misiones, Argentina</span>
+                        </li>
+                        <li>
+                            <span class="dato-icono">🏫</span>
+                            <span>Instructor en Escuela de Robótica (ERM)</span>
+                        </li>
+                        <li>
+                            <span class="dato-icono">🎓</span>
+                            <span>Tecnicatura en Software y Análisis de Sistemas</span>
+                        </li>
+                    </ul>
                 </div>
-                <div class="campo">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
+
+                <div class="contacto-formulario-contenedor">
+                    <form id="formulario-contacto" class="formulario-contacto">
+                        <div class="campo">
+                            <label for="nombre">Nombre completo</label>
+                            <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+                        </div>
+                        <div class="campo">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" name="email" placeholder="juan@ejemplo.com" required>
+                        </div>
+                        <div class="campo">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-enviar">Enviar Mensaje &rarr;</button>
+                        <p id="mensaje-exito" class="mensaje-exito oculto">
+                            <span class="exito-icono">✓</span> ¡Mensaje enviado con éxito! Te responderé a la brevedad.
+                        </p>
+                    </form>
                 </div>
-                <div class="campo">
-                    <label for="mensaje">Mensaje:</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
-                </div>
-                <button type="submit">Enviar</button>
-                <p id="mensaje-exito" class="oculto">¡Mensaje enviado con éxito!</p>
-            </form>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>&copy; 2026 Máximo Augusto Closs.</p>
+    <!-- Footer -->
+    <footer class="pie-pagina">
+        <div class="pie-contenedor">
+            <p>&copy; 2026 Máximo Augusto Closs. Diseñado con enfoque moderno y accesible.</p>
+            <a href="#inicio" class="enlace-volver-arriba" title="Volver al inicio">Subir &uarr;</a>
+        </div>
     </footer>
+
     <script src="js/script.js"></script>
 </body>
 </html>
