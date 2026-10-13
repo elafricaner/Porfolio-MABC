@@ -22,4 +22,4 @@ No es necesaria ninguna instalación compleja. Para visualizar el proyecto:
 3. Abrir el archivo `index.html` en cualquier navegador web moderno (Chrome, Edge, Firefox).
 
 ## Enlace al sitio publicado
-*(Aquí puedes agregar el enlace de GitHub Pages cuando lo actives)*
+https://github.com/elafricaner/Porfolio-MABC
