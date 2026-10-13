@@ -1,0 +1,151 @@
+/* Variables y reseteo básico */
+:root {
+    --color-fondo: #f4f4f9;
+    --color-texto: #333;
+    --color-primario: #2563eb;
+    --color-secundario: #1e40af;
+}
+/* Estilos */
+body.dark-mode {
+    --color-fondo: #1f2937;
+    --color-texto: #f9fafb;
+}
+
+body.dark-mode .tarjeta-proyecto {
+    background-color: #374151;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+body.dark-mode .tarjeta-proyecto a {
+    color: #93c5fd;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Uso de Flexbox para la navegación */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-primario);
+    color: white;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Uso de CSS Grid para los proyectos */
+.galeria-proyectos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.tarjeta-proyecto {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.5rem;
+    color: #333;
+}
+
+.perfil-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    margin: 1.5rem 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-btn {
+    display: inline-block;
+    background-color: var(--color-primario);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.cta-btn:hover {
+    background-color: var(--color-secundario);
+}
+
+.tarjeta-proyecto img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* Utilidades y Formularios */
+section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo input, .campo textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.oculto {
+    display: none;
+}
+
+/* Estilos para el botón de cambio de tema */
+.btn-tema {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.btn-tema:hover {
+    transform: scale(1.2); /* Efecto de agrandado al pasar el mouse */
+}
+
+/* Adaptabilidad */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .menu {
+        flex-direction: column;
+        gap: 0.5rem;
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - MABC</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+</head>
+<body>
+    <header>
+    <nav>
+        <ul class="menu">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre Mí</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <!-- Botón Tema -->
+    <button id="theme-toggle" class="btn-tema" title="Cambiar tema">🌙</button>
+</header>
+
+    <main>
+        <section id="inicio">
+            <h1>Máximo Augusto Closs</h1>
+            <p>Estudiante de Tecnicuatura en Software y Analisis de Sistemas | Instructor de Robótica</p>
+            <!-- Posible foto -->
+            <img src="img/perfil.jpg" alt="Foto de Máximo" class="perfil-img">
+            <a href="#proyectos" class="cta-btn">Ver mis trabajos</a>
+        </section>
+
+        <section id="sobre-mi">
+            <h2>Sobre Mí</h2>
+            <p>Resido en Posadas, Misiones. Combino el desarrollo de software full-stack con la enseñanza de robótica en la Escuela de Robótica Misiones (ERM). Me apasiona crear soluciones tecnológicas y diseñar piezas en impresión 3D.</p>
+            <h3>Tecnologías y Habilidades</h3>
+            <ul>
+                <li>PHP, Laravel, React, TypeScript, Tailwind CSS</li>
+                <li>Bases de datos: MySQL, MongoDB</li>
+                <li>Microcontroladores: Arduino, Motores, Módulos Bluetooth</li>
+                <li>Herramientas: Git, GitHub, Impresión 3D (Creality)</li>
+            </ul>
+        </section>
+
+        <section id="proyectos">
+            <h2>Proyectos Destacados</h2>
+            <div class="galeria-proyectos">
+                <!-- Proyecto 1 -->
+                <article class="tarjeta-proyecto">
+                    <img src="img/yerbatera.jpg" alt="Sistema Yerbatera">
+                    <h3>Yerbatera</h3>
+                    <p>Sistema de gestión web con control de roles de usuario.</p>
+                    <p><strong>Tecnologías:</strong> Laravel, MySQL, Tailwind CSS.</p>
+                    <a href="https://github.com/Yerbatera/Yerbatera-C-M" target="_blank">Ver Repositorio</a>
+                </article>
+                <!-- Proyecto 2 -->
+                <article class="tarjeta-proyecto">
+                    <img src="img/yapark.jpg" alt="App YaPark">
+                    <h3>YaPark</h3>
+                    <p>Propuesta de aplicación móvil para estacionamiento inteligente en Posadas mediante un modelo de suscripción.</p>
+                    <p><strong>Tecnologías:</strong> Figma, Análisis Financiero.</p>
+                </article>
+                <!-- Proyecto 3 -->
+                <article class="tarjeta-proyecto">
+                    <img src="img/robot.jpg" alt="Robot Bluetooth">
+                    <h3>Robot Controlado por Bluetooth</h3>
+                    <p>Robot ensamblado con sensores ultrasónicos y control asíncrono.</p>
+                    <p><strong>Tecnologías:</strong> Arduino Uno, HC-SR04, L298N.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <form id="formulario-contacto">
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="campo">
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                </div>
+                <button type="submit">Enviar</button>
+                <p id="mensaje-exito" class="oculto">¡Mensaje enviado con éxito!</p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Máximo Augusto Closs.</p>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
