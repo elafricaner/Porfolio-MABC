@@ -14,3 +14,8 @@ yarn-error.log*
 Thumbs.db
 *.log
 
+# Guías y notas internas de defensa
+GUIA_DEL_PROYECTO.md
+*.pdf
+GUIA_DEL_PROYECTO.html
+
