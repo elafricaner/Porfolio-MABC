@@ -1,0 +1,32 @@
+{
+  "name": "portfolio-backend",
+  "version": "1.0.0",
+  "description": "API REST en Node.js y Express conectada a MongoDB para el Portfolio Web (Actividad Integradora Unidades 3, 4, 5 y 6)",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "check-types": "tsc --noEmit"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "mongodb",
+    "mongoose",
+    "typescript",
+    "crud"
+  ],
+  "author": "Máximo Augusto Closs",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.8.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  }
+}
+

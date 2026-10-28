@@ -34,6 +34,8 @@
             <div class="nav-acciones">
                 <!-- Botón de cambio de tema -->
                 <button id="theme-toggle" class="btn-tema" title="Cambiar tema" aria-label="Cambiar tema">🌙</button>
+                <!-- Botón de administración rápida (CRUD por DNI) -->
+                <button id="btn-abrir-admin" class="btn-tema btn-admin" title="Panel de Gestión de Proyectos (CRUD)" aria-label="Administrar proyectos">⚙️</button>
                 <!-- Botón de menú responsive para móviles -->
                 <button id="menu-toggle" class="btn-hamburguesa" aria-label="Abrir menú de navegación">
                     <span class="linea"></span>
@@ -111,9 +113,10 @@
                         <div class="habilidad-icono">🗄️</div>
                         <h3>Bases de Datos</h3>
                         <div class="chips-stack">
-                            <span class="chip">MySQL</span>
                             <span class="chip">MongoDB</span>
-                            <span class="chip">Modelado Relacional</span>
+                            <span class="chip">Mongoose</span>
+                            <span class="chip">MySQL</span>
+                            <span class="chip">Modelado Relacional & NoSQL</span>
                         </div>
                     </div>
 
@@ -133,6 +136,7 @@
                         <h3>Herramientas & Prototipado</h3>
                         <div class="chips-stack">
                             <span class="chip">Git & GitHub</span>
+                            <span class="chip">Node.js & Express</span>
                             <span class="chip">Impresión 3D (Creality)</span>
                             <span class="chip">Figma</span>
                         </div>
@@ -141,77 +145,38 @@
             </div>
         </section>
 
-        <!-- Sección Proyectos -->
+        <!-- Sección Proyectos (Conectada a la Base de Datos MongoDB) -->
         <section id="proyectos" class="seccion">
             <div class="seccion-header">
-                <span class="seccion-etiqueta">Portafolio</span>
-                <h2>Proyectos Destacados</h2>
-                <p class="seccion-subtitulo">Una selección de desarrollos web, propuestas de aplicaciones y robótica.</p>
+                <div class="seccion-header-con-boton">
+                    <div>
+                        <span class="seccion-etiqueta">Portafolio Dinámico</span>
+                        <h2>Proyectos Destacados</h2>
+                        <p class="seccion-subtitulo">Información sincronizada en tiempo real mediante API REST y MongoDB.</p>
+                    </div>
+                    <button id="btn-gestionar-proyectos-seccion" class="btn-gestionar-seccion" title="Abrir panel de administración">
+                        <span>⚙️ Administrar Proyectos</span>
+                    </button>
+                </div>
             </div>
 
-            <div class="galeria-proyectos">
-                <!-- Proyecto 1 -->
-                <article class="tarjeta-proyecto">
-                    <div class="tarjeta-img-contenedor">
-                        <img src="img/yerbatera.jpg" alt="Sistema Yerbatera">
-                        <span class="proyecto-badge">Web & Backend</span>
-                    </div>
-                    <div class="tarjeta-cuerpo">
-                        <h3>Yerbatera</h3>
-                        <p>Sistema de gestión web con control de roles de usuario, flujo administrativo y registro de operaciones.</p>
-                        <div class="tecnologias-tags">
-                            <span class="tag">Laravel</span>
-                            <span class="tag">MySQL</span>
-                            <span class="tag">Tailwind CSS</span>
-                        </div>
-                        <div class="tarjeta-acciones">
-                            <a href="https://github.com/Yerbatera/Yerbatera-C-M" target="_blank" rel="noopener noreferrer" class="link-proyecto">
-                                Ver Repositorio &nearr;
-                            </a>
-                        </div>
-                    </div>
-                </article>
+            <!-- Estructura del Carrusel Dinámico (se activa cuando hay más de 3 proyectos) -->
+            <div class="carrusel-wrapper">
+                <button id="carrusel-btn-prev" class="carrusel-flecha carrusel-prev oculto" aria-label="Ver proyecto anterior" title="Anterior">&#10094;</button>
 
-                <!-- Proyecto 2 -->
-                <article class="tarjeta-proyecto">
-                    <div class="tarjeta-img-contenedor">
-                        <img src="img/yapark.jpg" alt="App YaPark">
-                        <span class="proyecto-badge">Mobile & Negocios</span>
+                <!-- Contenedor dinámico de proyectos: se llena con fetch() a Node/Express -->
+                <div id="galeria-proyectos" class="galeria-proyectos">
+                    <div class="cargando-proyectos">
+                        <span class="spinner"></span>
+                        <p>Consultando base de datos MongoDB...</p>
                     </div>
-                    <div class="tarjeta-cuerpo">
-                        <h3>YaPark</h3>
-                        <p>Propuesta de aplicación móvil para estacionamiento inteligente en Posadas mediante un modelo de suscripción.</p>
-                        <div class="tecnologias-tags">
-                            <span class="tag">Figma</span>
-                            <span class="tag">UX / UI</span>
-                            <span class="tag">Análisis Financiero</span>
-                        </div>
-                        <div class="tarjeta-acciones">
-                            <span class="link-proyecto-badge">Proyecto Conceptual</span>
-                        </div>
-                    </div>
-                </article>
+                </div>
 
-                <!-- Proyecto 3 -->
-                <article class="tarjeta-proyecto">
-                    <div class="tarjeta-img-contenedor">
-                        <img src="img/robot.jpg" alt="Robot Bluetooth">
-                        <span class="proyecto-badge">Robótica & IoT</span>
-                    </div>
-                    <div class="tarjeta-cuerpo">
-                        <h3>Robot Controlado por Bluetooth</h3>
-                        <p>Robot ensamblado con sensores ultrasónicos para detección de obstáculos y control asíncrono inalámbrico.</p>
-                        <div class="tecnologias-tags">
-                            <span class="tag">Arduino Uno</span>
-                            <span class="tag">HC-SR04</span>
-                            <span class="tag">L298N</span>
-                        </div>
-                        <div class="tarjeta-acciones">
-                            <span class="link-proyecto-badge">Prototipo ERM</span>
-                        </div>
-                    </div>
-                </article>
+                <button id="carrusel-btn-next" class="carrusel-flecha carrusel-next oculto" aria-label="Ver proyecto siguiente" title="Siguiente">&#10095;</button>
             </div>
+
+            <!-- Indicadores de posición del carrusel -->
+            <div id="carrusel-indicadores" class="carrusel-indicadores oculto"></div>
         </section>
 
         <!-- Sección Contacto -->
@@ -267,10 +232,131 @@
         </section>
     </main>
 
+    <!-- Modal Emergente de Gestión de Proyectos (CRUD) con Acceso por DNI -->
+    <div id="modal-admin" class="modal-overlay oculto" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="modal-contenedor">
+            <div class="modal-header">
+                <div class="modal-titulo-wrapper">
+                    <span class="modal-icono">⚙️</span>
+                    <h3 id="modal-titulo">Panel de Administración de Proyectos</h3>
+                </div>
+                <button id="btn-cerrar-modal" class="btn-cerrar" aria-label="Cerrar modal">&times;</button>
+            </div>
+
+            <!-- PASO 1: Ventana emergente de Login solicitando DNI -->
+            <div id="vista-auth-admin" class="vista-admin">
+                <div class="auth-box">
+                    <div class="auth-icono">🔒</div>
+                    <h4>Identificación Requerida</h4>
+                    <p>Ingresa tu <strong>DNI</strong> para acceder a las operaciones de creación, edición y eliminación en la base de datos.</p>
+                    <form id="form-auth-admin">
+                        <div class="campo">
+                            <label for="input-dni">DNI de Administrador</label>
+                            <input type="password" id="input-dni" placeholder="Ej: 12345678" required autocomplete="current-password">
+                        </div>
+                        <p id="error-auth-dni" class="error-auth oculto"></p>
+                        <button type="submit" class="btn-enviar">Ingresar al Panel &rarr;</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- PASO 2: Panel de Gestión CRUD Completo -->
+            <div id="vista-crud-admin" class="vista-admin oculto">
+                <div class="crud-barra-superior">
+                    <span class="badge-conectado">
+                        <span class="punto-pulso"></span>
+                        <span>MongoDB Conectado</span>
+                    </span>
+                    <button id="btn-cerrar-sesion" class="btn-link-cerrar">Cerrar Sesión</button>
+                </div>
+
+                <!-- Formulario de Creación / Modificación -->
+                <div class="crud-caja-formulario">
+                    <h4 id="crud-form-titulo">Registrar Nuevo Proyecto</h4>
+                    <form id="form-proyecto-crud" class="form-crud">
+                        <input type="hidden" id="crud-id">
+
+                        <div class="grid-2-col">
+                            <div class="campo">
+                                <label for="crud-nombre">Nombre del Proyecto *</label>
+                                <input type="text" id="crud-nombre" placeholder="Ej: Sistema Yerbatera" required>
+                            </div>
+                            <div class="campo">
+                                <label for="crud-categoria">Categoría</label>
+                                <select id="crud-categoria">
+                                    <option value="Web & Backend">Web & Backend</option>
+                                    <option value="Mobile & Negocios">Mobile & Negocios</option>
+                                    <option value="Robótica & IoT">Robótica & IoT</option>
+                                    <option value="Software General">Software General</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="campo">
+                            <label for="crud-descripcion">Descripción *</label>
+                            <textarea id="crud-descripcion" rows="3" placeholder="Detalle y objetivos del proyecto..." required></textarea>
+                        </div>
+
+                        <div class="grid-2-col">
+                            <div class="campo">
+                                <label for="crud-tecnologias">Tecnologías (separadas por comas)</label>
+                                <input type="text" id="crud-tecnologias" placeholder="Ej: Laravel, MySQL, Tailwind CSS">
+                            </div>
+                            <div class="campo">
+                                <label for="crud-estado">Estado de Publicación *</label>
+                                <select id="crud-estado">
+                                    <option value="publicado">Publicado</option>
+                                    <option value="borrador">Borrador</option>
+                                    <option value="en_progreso">En Progreso</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid-2-col">
+                            <div class="campo">
+                                <label>Imagen del Proyecto *</label>
+                                <div class="selector-imagen-wrapper">
+                                    <input type="file" id="crud-imagen-archivo" accept="image/*" class="input-archivo-oculto">
+                                    <button type="button" id="btn-seleccionar-imagen" class="btn-seleccionar-imagen">
+                                        📁 Elegir imagen desde tu PC
+                                    </button>
+                                    <span id="nombre-archivo-seleccionado" class="nombre-archivo-txt">Ninguna imagen seleccionada</span>
+                                </div>
+                                <input type="hidden" id="crud-imagen" value="img/yerbatera.jpg">
+                                <div id="preview-imagen-contenedor" class="preview-imagen-box oculto">
+                                    <img id="preview-imagen" src="" alt="Vista previa de la imagen">
+                                    <button type="button" id="btn-quitar-preview" class="btn-quitar-preview" title="Quitar imagen">&times;</button>
+                                </div>
+                            </div>
+                            <div class="campo">
+                                <label for="crud-repositorio">Enlace al Repositorio (Opcional)</label>
+                                <input type="url" id="crud-repositorio" placeholder="https://github.com/...">
+                            </div>
+                        </div>
+
+                        <div class="crud-botones-accion">
+                            <button type="submit" id="btn-guardar-crud" class="btn-enviar">Guardar Proyecto</button>
+                            <button type="button" id="btn-cancelar-edicion" class="btn-cancelar-edicion oculto">Cancelar Edición</button>
+                        </div>
+                        <p id="crud-mensaje-alerta" class="crud-alerta oculto"></p>
+                    </form>
+                </div>
+
+                <!-- Lista de Proyectos en Base de Datos -->
+                <div class="crud-caja-lista">
+                    <h4>Proyectos Registrados en MongoDB</h4>
+                    <div id="lista-proyectos-admin" class="lista-admin-grid">
+                        <!-- Renderizado dinámicamente con botones Editar y Eliminar -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="pie-pagina">
         <div class="pie-contenedor">
-            <p>&copy; 2026 Máximo Augusto Closs. Diseñado con enfoque moderno y accesible.</p>
+            <p>&copy; 2026 Máximo Augusto Closs. Diseñado con enfoque moderno y conectado a MongoDB.</p>
             <a href="#inicio" class="enlace-volver-arriba" title="Volver al inicio">Subir &uarr;</a>
         </div>
     </footer>
